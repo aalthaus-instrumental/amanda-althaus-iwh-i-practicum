@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    style.
+      table {
+        width: 60%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+  body
+    h1= title
+    a(href="/update-cobj") Add to this table
+    if programs.length
+      table
+        thead
+          tr
+            th Name
+            th Date
+            th Status
+        tbody
+          each program in programs
+            tr
+              td= program.properties.name
+              td= program.properties.program_date
+              td= program.properties.program_status
+    else
+      p We didn't find any record yet, try creating one!
