@@ -52,12 +52,12 @@ html
         input(type="text" name="name" required)
       div
         label(for="program_date") Date:
-        input(type="date" name="program_date" required)
+        input(type="date" name="program_date" id="program_date" required)
       div
         label(for="program_status") Status:
         select(name="program_status" required)
           option(value="" disabled selected) Select status
-          option(value="planning") Planning
-          option(value="completed") Completed
+          option(value="Planning") Planning
+          option(value="Completed") Completed
       div
-        button(type="submit") Save
+        button(type="submit") Save      

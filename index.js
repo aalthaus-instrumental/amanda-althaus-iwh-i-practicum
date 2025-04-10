@@ -29,5 +29,24 @@ app.get(`/update-cobj`, async (req, res) => {
     res.render(`updates`, { title: `Update Custom Object Form | Integrating With HubSpot I Practicum` });
 });
 
+app.post('/update-cobj', async (req, res) => {
+    
+    const headers = { Authorization: `Bearer ${PRIVATE_APP_ACCESS}`, 'Content-Type': 'application/json' };
+    const { name, program_date, program_status } = req.body;
+    const createProgramRequestBody = { 
+        properties: { 
+            name, 
+            program_date, 
+            program_status 
+        } 
+    };
+    try {
+        await axios.post(customObjectRootApi, createProgramRequestBody, { headers });
+        res.redirect('/');
+    } catch (error) { 
+        console.log(error)
+        res.status(500).send('Something went wrong when calling HubSpot API'); 
+    }
+});
 // * Localhost
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));
