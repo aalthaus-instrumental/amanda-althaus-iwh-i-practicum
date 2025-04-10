@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    title= title
+    style.
+      body {
+        font-family: sans-serif;
+        margin: 40px;
+        background-color: #f9f9f9;
+      }
+      h1, h2 {
+        color: #333;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 500px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      div {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, select, button {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #0052cc;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #003d99;
+      }
+  body
+    h1= title
+    a(href="/") Return to the homepage
+    h2 Create Program
+    form(action="/update-cobj" method="POST")
+      div
+        label(for="name") Name:
+        input(type="text" name="name" required)
+      div
+        label(for="program_date") Date:
+        input(type="date" name="program_date" required)
+      div
+        label(for="program_status") Status:
+        select(name="program_status" required)
+          option(value="" disabled selected) Select status
+          option(value="planning") Planning
+          option(value="completed") Completed
+      div
+        button(type="submit") Save

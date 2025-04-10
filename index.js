@@ -25,5 +25,9 @@ app.get('/', async (req, res) => {
     } catch (error) { res.status(500).send('Error loading data') }
 });
 
+app.get(`/update-cobj`, async (req, res) => {
+    res.render(`updates`, { title: `Update Custom Object Form | Integrating With HubSpot I Practicum` });
+});
+
 // * Localhost
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));
